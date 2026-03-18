@@ -1,0 +1,39 @@
+{
+  "name": "BBAG Cloud & AI Academy",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "installBicep": true,
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "version": "latest",
+      "tflint": "latest"
+    },
+    "ghcr.io/devcontainers/features/powershell:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "ms-vscode.azurecli",
+        "ms-azuretools.vscode-bicep",
+        "hashicorp.terraform",
+        "ms-vscode.powershell",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "postCreateCommand": "echo 'Welcome to the BBAG Academy!' && az bicep upgrade && az version && terraform --version",
+  "remoteUser": "vscode"
+}
